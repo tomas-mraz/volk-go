@@ -6,13 +6,16 @@ package volk
 #include "volk.h"
 */
 import "C"
-import "unsafe"
+import (
+	"errors"
+	"unsafe"
+)
 
 func Initialize() error {
 	if C.volkInitialize() != 0 {
 		return nil
 	}
-	return nil
+	return errors.New("volk initialization failed")
 }
 
 func LoadInstance(instance uintptr) {
