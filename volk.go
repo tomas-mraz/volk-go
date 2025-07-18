@@ -2,7 +2,7 @@ package volk
 
 /*
 #cgo CFLAGS: -Ivolk
-#cgo LDFLAGS: -ldl
+#cgo LDFLAGS: -Lvolk -lvolk -ldl
 #include "volk.h"
 */
 import "C"
