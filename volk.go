@@ -7,15 +7,16 @@ package volk
 */
 import "C"
 import (
-	"errors"
+	"fmt"
 	"unsafe"
 )
 
 func Initialize() error {
-	if C.volkInitialize() != 0 {
-		return nil
+	result := C.volkInitialize()
+	if result != 0 {
+		return fmt.Errorf("volkInitialize failed with error code: %d", int(result))
 	}
-	return errors.New("volk initialization failed")
+	return nil
 }
 
 func LoadInstance(instance unsafe.Pointer) {
