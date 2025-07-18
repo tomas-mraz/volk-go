@@ -18,10 +18,10 @@ func Initialize() error {
 	return errors.New("volk initialization failed")
 }
 
-func LoadInstance(instance uintptr) {
-	C.volkLoadInstance((C.VkInstance)(unsafe.Pointer(instance)))
+func LoadInstance(instance unsafe.Pointer) {
+	C.volkLoadInstance((C.VkInstance)(instance))
 }
 
-func LoadDevice(device uintptr) {
-	C.volkLoadDevice((C.VkDevice)(unsafe.Pointer(device)))
+func LoadDevice(device unsafe.Pointer) {
+	C.volkLoadDevice((C.VkDevice)(device))
 }
