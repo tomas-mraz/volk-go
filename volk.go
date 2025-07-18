@@ -19,6 +19,10 @@ func LoadInstance(instance uintptr) {
 	C.volkLoadInstance((C.VkInstance)(unsafe.Pointer(instance)))
 }
 
+func LoadDevice(device uintptr) {
+	C.volkLoadDevice((C.VkDevice)(unsafe.Pointer(device)))
+}
+
 func GetProcAddr() unsafe.Pointer {
 	return unsafe.Pointer(C.volkGetInstanceProcAddr())
 }
